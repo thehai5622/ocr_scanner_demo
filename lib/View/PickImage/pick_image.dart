@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ocr_scanner_demo/Controller/Home/home_controller.dart';
+import 'package:ocr_scanner_demo/Controller/PickImage/pick_image_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
 
-class Home extends StatelessWidget {
-  Home({super.key});
+class PickImage extends StatelessWidget {
+  PickImage({super.key});
 
-  final controller = Get.put(HomeController());
+  final controller = Get.put(PickImageController());
 
   @override
   Widget build(BuildContext context) {

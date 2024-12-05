@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-class HomeController extends GetxController {
+class PickImageController extends GetxController {
   String result = '';
   Rx<File> image = Rx<File>(File(''));
   ImagePicker? imagePicker;
