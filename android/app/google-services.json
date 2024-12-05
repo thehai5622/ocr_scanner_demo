@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "753276740560",
+    "project_id": "imagetotext-d3125",
+    "storage_bucket": "imagetotext-d3125.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753276740560:android:dc3ba520ef3e1b91e60fd5",
+        "android_client_info": {
+          "package_name": "com.example.ocr_scanner_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRQwhDxAgOHSOuGK5W8ATbJGYQ2WRiAh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
