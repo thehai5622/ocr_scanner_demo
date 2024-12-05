@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) => GetMaterialApp(
         title: 'Image to Text Converter GetX',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColor.main),
           useMaterial3: true,
           appBarTheme: const AppBarTheme(
             titleSpacing: 20,

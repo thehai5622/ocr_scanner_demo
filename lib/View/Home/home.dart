@@ -14,6 +14,11 @@ class Home extends StatelessWidget {
       decoration: const BoxDecoration(
         color: AppColor.main,
       ),
+      child: ElevatedButton(
+          onPressed: () {
+            controller.pickImageFromGallery();
+          },
+          child: const Text('Pick Image')),
     );
   }
 }
