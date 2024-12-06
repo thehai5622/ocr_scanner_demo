@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/Controller/PickImage/pick_image_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
+import 'package:ocr_scanner_demo/Service/device_helper.dart';
 
 class PickImage extends StatelessWidget {
   PickImage({super.key});
@@ -10,63 +12,77 @@ class PickImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: AppColor.main,
-      ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.fourthMain,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          color: AppColor.main,
+        ),
+        child: SafeArea(
+          child: ListView(
+            children: [
+              ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.fourthMain,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: const Size(200, 50),
                       ),
-                      minimumSize: const Size(200, 50),
-                    ),
-                    onPressed: () {
-                      controller.pickImageFromGallery();
-                    },
-                    child: const Text('Pick Image'))
-                .marginOnly(bottom: 12, top: 12),
-            ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.fourthMain,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                      onPressed: () {
+                        controller.pickImageFromGallery();
+                      },
+                      child: const Text('Pick Image'))
+                  .marginOnly(bottom: 12, top: 12),
+              ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.fourthMain,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: const Size(200, 50),
                       ),
-                      minimumSize: const Size(200, 50),
-                    ),
-                    onPressed: () {
-                      controller.pickImageFromCamera();
-                    },
-                    child: const Text('Image from Camera'))
-                .marginOnly(bottom: 12),
-            ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.fourthMain,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                      onPressed: () {
+                        controller.pickImageFromCamera();
+                      },
+                      child: const Text('Image from Camera'))
+                  .marginOnly(bottom: 12),
+              ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.fourthMain,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: const Size(200, 50),
                       ),
-                      minimumSize: const Size(200, 50),
+                      onPressed: () {
+                        controller.clearImage();
+                      },
+                      child: const Text('Clear Image'))
+                  .marginOnly(bottom: 12),
+              Obx(() {
+                if (controller.image.value.path != "") {
+                  return Image.file(controller.image.value);
+                } else {
+                  return const SizedBox();
+                }
+              }),
+              Obx(() => Text(
+                    controller.textInImage.value,
+                    style: TextStyle(
+                      // decoration: TextDecoration.lineThrough, // Chỉ gạch ngang
+                      // decorationColor: AppColor.thirdMain, // Màu gạch ngang
+                      // decorationThickness: 2.0, // Độ dày của dòng gạch ngang
+                      color: AppColor.thirdMain,
+                      fontWeight: FontWeight.w900,
+                      fontStyle: FontStyle.normal,
+                      fontSize: DeviceHelper.getFontSize(16),
                     ),
-                    onPressed: () {
-                      controller.clearImage();
-                    },
-                    child: const Text('Clear Image'))
-                .marginOnly(bottom: 12),
-            Obx(() {
-              if (controller.image.value.path != "") {
-                return Image.file(controller.image.value);
-              } else {
-                return const SizedBox.shrink();
-              }
-            }),
-          ],
+                  ).paddingAll(20.sp))
+            ],
+          ),
         ),
       ),
     );

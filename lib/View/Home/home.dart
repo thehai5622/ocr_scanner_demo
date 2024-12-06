@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/Controller/Home/home_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
@@ -65,7 +66,7 @@ class Home extends StatelessWidget {
                 if (controller.image.value.path != "") {
                   return Image.file(controller.image.value);
                 } else {
-                  return const SizedBox.shrink();
+                  return const SizedBox();
                 }
               }),
               Obx(() => Text(
@@ -79,7 +80,7 @@ class Home extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                       fontSize: DeviceHelper.getFontSize(16),
                     ),
-                  ))
+                  ).paddingAll(20.sp))
             ],
           ),
         ),

@@ -5,10 +5,9 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 import 'package:image_picker/image_picker.dart';
 
 class HomeController extends GetxController {
-  String result = '';
   Rx<File> image = Rx<File>(File(''));
   ImagePicker? imagePicker;
-  RxString textInImage = 'Thế Hải'.obs;
+  RxString textInImage = ''.obs;
 
   @override
   void onInit() async {
@@ -27,7 +26,7 @@ class HomeController extends GetxController {
         await imagePicker!.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       image.value = File(pickedFile.path);
-      print("this is path: ${image.value.uri}");
+      performImageLabeling();
     }
   }
 
@@ -37,28 +36,17 @@ class HomeController extends GetxController {
         await imagePicker!.pickImage(source: ImageSource.camera);
     if (pickedFile != null) {
       image.value = File(pickedFile.path);
-      print("this is path: ${image.value.uri}");
+      performImageLabeling();
     }
   }
 
   performImageLabeling() async {
-    if (image.value.path == "") {
-      print("image is empty");
-      return;
-    }
-
     try {
-      // 1. Tạo đối tượng InputImage từ file ảnh
       final inputImage = InputImage.fromFile(image.value);
-
-      // 2. Tạo TextRecognizer từ plugin mới
       final textRecognizer = TextRecognizer();
-
-      // 3. Xử lý ảnh để nhận dạng văn bản
       final RecognizedText recognizedText =
           await textRecognizer.processImage(inputImage);
 
-      // 4. Lưu kết quả vào biến textInImage
       textInImage.value = recognizedText.text;
 
       // 5. In từng dòng văn bản
@@ -69,7 +57,6 @@ class HomeController extends GetxController {
         }
       }
 
-      // 6. Giải phóng tài nguyên
       textRecognizer.close();
     } catch (e) {
       print('Error during text recognition: $e');
@@ -78,5 +65,6 @@ class HomeController extends GetxController {
 
   clearImage() {
     image.value = File('');
+    textInImage.value = '';
   }
 }

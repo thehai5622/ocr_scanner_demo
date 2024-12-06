@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/View/Home/home.dart';
+import 'package:ocr_scanner_demo/View/PickImage/pick_image.dart';
 
 part 'app_route.dart';
 
@@ -10,5 +11,6 @@ class AppPage {
 
   static final List<GetPage<dynamic>> routes = [
     GetPage(name: Routes.home, page: () => Home()),
+    GetPage(name: Routes.pickImage, page: () => PickImage()),
   ];
 }
