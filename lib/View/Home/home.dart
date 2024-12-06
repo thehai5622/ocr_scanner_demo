@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          color: AppColor.main,
+          color: AppColor.subMain,
         ),
         child: SafeArea(
           child: ListView(

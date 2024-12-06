@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
 import 'package:ocr_scanner_demo/Route/app_page.dart';
-import 'package:ocr_scanner_demo/View/Home/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +36,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: AppPage.initialRoute,
         getPages: AppPage.routes,
-        home: Home(),
       ),
     );
   }
