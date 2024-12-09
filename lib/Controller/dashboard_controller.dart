@@ -6,8 +6,8 @@ class DashboardController extends GetxController {
 
   @override
   void onInit() async {
-    isLoading.value = false;
     super.onInit();
+    isLoading.value = false;
   }
   
   changePage(int index) {

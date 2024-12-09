@@ -17,72 +17,70 @@ class PickImage extends StatelessWidget {
         decoration: const BoxDecoration(
           color: AppColor.main,
         ),
-        child: SafeArea(
-          child: ListView(
-            children: [
-              ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColor.fourthMain,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        minimumSize: const Size(200, 50),
+        child: ListView(
+          children: [
+            ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColor.fourthMain,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      onPressed: () {
-                        controller.pickImageFromGallery();
-                      },
-                      child: const Text('Pick Image'))
-                  .marginOnly(bottom: 12, top: 12),
-              ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColor.fourthMain,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        minimumSize: const Size(200, 50),
-                      ),
-                      onPressed: () {
-                        controller.pickImageFromCamera();
-                      },
-                      child: const Text('Image from Camera'))
-                  .marginOnly(bottom: 12),
-              ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColor.fourthMain,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        minimumSize: const Size(200, 50),
-                      ),
-                      onPressed: () {
-                        controller.clearImage();
-                      },
-                      child: const Text('Clear Image'))
-                  .marginOnly(bottom: 12),
-              Obx(() {
-                if (controller.image.value.path != "") {
-                  return Image.file(controller.image.value);
-                } else {
-                  return const SizedBox();
-                }
-              }),
-              Obx(() => Text(
-                    controller.textInImage.value,
-                    style: TextStyle(
-                      // decoration: TextDecoration.lineThrough, // Chỉ gạch ngang
-                      // decorationColor: AppColor.thirdMain, // Màu gạch ngang
-                      // decorationThickness: 2.0, // Độ dày của dòng gạch ngang
-                      color: AppColor.thirdMain,
-                      fontWeight: FontWeight.w900,
-                      fontStyle: FontStyle.normal,
-                      fontSize: DeviceHelper.getFontSize(16),
+                      minimumSize: const Size(200, 50),
                     ),
-                  ).paddingAll(20.sp))
-            ],
-          ),
+                    onPressed: () {
+                      controller.pickImageFromGallery();
+                    },
+                    child: const Text('Pick Image'))
+                .marginOnly(bottom: 12, top: 12),
+            ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColor.fourthMain,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      minimumSize: const Size(200, 50),
+                    ),
+                    onPressed: () {
+                      controller.pickImageFromCamera();
+                    },
+                    child: const Text('Image from Camera'))
+                .marginOnly(bottom: 12),
+            ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColor.fourthMain,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      minimumSize: const Size(200, 50),
+                    ),
+                    onPressed: () {
+                      controller.clearImage();
+                    },
+                    child: const Text('Clear Image'))
+                .marginOnly(bottom: 12),
+            Obx(() {
+              if (controller.image.value.path != "") {
+                return Image.file(controller.image.value);
+              } else {
+                return const SizedBox();
+              }
+            }),
+            Obx(() => Text(
+                  controller.textInImage.value,
+                  style: TextStyle(
+                    // decoration: TextDecoration.lineThrough, // Chỉ gạch ngang
+                    // decorationColor: AppColor.thirdMain, // Màu gạch ngang
+                    // decorationThickness: 2.0, // Độ dày của dòng gạch ngang
+                    color: AppColor.thirdMain,
+                    fontWeight: FontWeight.w900,
+                    fontStyle: FontStyle.normal,
+                    fontSize: DeviceHelper.getFontSize(16),
+                  ),
+                ).paddingAll(20.sp))
+          ],
         ),
       ),
     );

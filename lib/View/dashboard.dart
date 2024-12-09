@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/Controller/dashboard_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
+import 'package:ocr_scanner_demo/Service/device_helper.dart';
 import 'package:ocr_scanner_demo/View/Home/home.dart';
 
 class Dashboard extends StatelessWidget {
@@ -72,19 +73,22 @@ class Dashboard extends StatelessWidget {
                           ),
                           Text(
                             'Tổng quan',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: controller.currentIndex.value == 0
-                                  ? AppColor.fourthMain
-                                  : Colors.grey,
-                            ),
+                            style: controller.currentIndex.value == 0
+                                ? TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: AppColor.fourthMain,
+                                    fontWeight: FontWeight.w700)
+                                : TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: Colors.grey,
+                                  ),
                           ),
                         ],
                       ),
                     ),
                   ),
                 ),
-                // Trang nào đó
+                // Trang sổ giao dịch
                 Expanded(
                   child: GestureDetector(
                     onTap: () => controller.changePage(1),
@@ -93,34 +97,36 @@ class Dashboard extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          // SvgPicture.asset(
-                          //   'assets/icons/home_hashtag.svg',
-                          //   colorFilter: controller.currentIndex.value == 1
-                          //       ? const ColorFilter.mode(
-                          //           AppColor.fourthMain, BlendMode.srcIn)
-                          //       : null,
-                          // ),
-                          Icon(
-                            Icons.ac_unit_rounded,
-                            color: controller.currentIndex.value == 1
-                                ? AppColor.fourthMain
-                                : Colors.grey,
+                          SvgPicture.asset(
+                            'assets/icons/wallet.svg',
+                            height: 20,
+                            width: 20,
+                            colorFilter: controller.currentIndex.value == 1
+                                ? const ColorFilter.mode(
+                                    AppColor.fourthMain, BlendMode.srcIn)
+                                : null,
                           ),
                           Text(
-                            'Some page 1',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: controller.currentIndex.value == 1
-                                  ? AppColor.fourthMain
-                                  : Colors.grey,
-                            ),
+                            'Sổ giao dịch',
+                            style: controller.currentIndex.value == 1
+                                ? TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: AppColor.fourthMain,
+                                    fontWeight: FontWeight.w700)
+                                : TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: Colors.grey,
+                                  ),
                           ),
                         ],
                       ),
                     ),
                   ),
                 ),
-                // Trang nào đó
+
+                SizedBox(width: 35.w),
+
+                // Trang ngân sách
                 Expanded(
                   child: GestureDetector(
                     onTap: () => controller.changePage(2),
@@ -129,27 +135,26 @@ class Dashboard extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          // SvgPicture.asset(
-                          //   'assets/icons/home_hashtag.svg',
-                          //   colorFilter: controller.currentIndex.value == 2
-                          //       ? const ColorFilter.mode(
-                          //           AppColor.fourthMain, BlendMode.srcIn)
-                          //       : null,
-                          // ),
-                          Icon(
-                            Icons.person,
-                            color: controller.currentIndex.value == 2
-                                ? AppColor.fourthMain
-                                : Colors.grey,
+                          SvgPicture.asset(
+                            'assets/icons/budget.svg',
+                            height: 20,
+                            width: 20,
+                            colorFilter: controller.currentIndex.value == 2
+                                ? const ColorFilter.mode(
+                                    AppColor.fourthMain, BlendMode.srcIn)
+                                : null,
                           ),
                           Text(
-                            'Some page 2',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: controller.currentIndex.value == 2
-                                  ? AppColor.fourthMain
-                                  : Colors.grey,
-                            ),
+                            'Ngân sách',
+                            style: controller.currentIndex.value == 2
+                                ? TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: AppColor.fourthMain,
+                                    fontWeight: FontWeight.w700)
+                                : TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: Colors.grey,
+                                  ),
                           ),
                         ],
                       ),
@@ -174,12 +179,15 @@ class Dashboard extends StatelessWidget {
                           ),
                           Text(
                             'Cá nhân',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: controller.currentIndex.value == 3
-                                  ? AppColor.fourthMain
-                                  : Colors.grey,
-                            ),
+                            style: controller.currentIndex.value == 3
+                                ? TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: AppColor.fourthMain,
+                                    fontWeight: FontWeight.w700)
+                                : TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(12),
+                                    color: Colors.grey,
+                                  ),
                           ),
                         ],
                       ),

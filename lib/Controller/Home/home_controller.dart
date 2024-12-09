@@ -3,15 +3,18 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:ocr_scanner_demo/Utils/utils.dart';
 
 class HomeController extends GetxController {
   Rx<File> image = Rx<File>(File(''));
   ImagePicker? imagePicker;
   RxString textInImage = ''.obs;
+  RxBool isShowBalance = false.obs;
 
   @override
   void onInit() async {
     super.onInit();
+    isShowBalance.value = await Utils.getBoolValueWithKey("isShowBalance");
   }
 
   @override
@@ -66,5 +69,10 @@ class HomeController extends GetxController {
   clearImage() {
     image.value = File('');
     textInImage.value = '';
+  }
+
+  changeShowBalance() async {
+    isShowBalance.value = !isShowBalance.value;
+    await Utils.saveBoolWithKey("isShowBalance", isShowBalance.value);
   }
 }
