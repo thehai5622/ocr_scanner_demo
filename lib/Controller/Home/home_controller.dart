@@ -10,6 +10,8 @@ class HomeController extends GetxController {
   ImagePicker? imagePicker;
   RxString textInImage = ''.obs;
   RxBool isShowBalance = false.obs;
+  RxInt reportTabIndex = 0.obs;
+  RxInt reportTrendTabIndex = 0.obs;
 
   @override
   void onInit() async {
@@ -74,5 +76,9 @@ class HomeController extends GetxController {
   changeShowBalance() async {
     isShowBalance.value = !isShowBalance.value;
     await Utils.saveBoolWithKey("isShowBalance", isShowBalance.value);
+  }
+  
+  changeReportTabIndex() {
+    reportTabIndex.value = reportTabIndex.value == 0 ? 1 : 0;
   }
 }

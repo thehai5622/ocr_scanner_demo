@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/Controller/Home/home_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
@@ -29,15 +29,16 @@ class Home extends StatelessWidget {
                             "0",
                             style: TextStyle(
                               fontSize: DeviceHelper.getFontSize(20),
-                              color: AppColor.fourthMain,
+                              color: AppColor.text1,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
+                          const SizedBox(width: 8),
                           Text(
-                            " đ",
+                            "đ",
                             style: TextStyle(
                               fontSize: DeviceHelper.getFontSize(20),
-                              color: AppColor.fourthMain,
+                              color: AppColor.text1,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -47,7 +48,7 @@ class Home extends StatelessWidget {
                         "✱✱✱✱✱✱✱",
                         style: TextStyle(
                           fontSize: DeviceHelper.getFontSize(20),
-                          color: AppColor.fourthMain,
+                          color: AppColor.text1,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -61,14 +62,14 @@ class Home extends StatelessWidget {
                           controller.isShowBalance.value
                               ? Icons.remove_red_eye
                               : Icons.remove_red_eye_outlined,
-                          color: AppColor.fourthMain)
+                          color: AppColor.text1)
                       .marginOnly(left: 12),
                 ),
               ),
             ],
           ),
           Tooltip(
-              message: "Được tính dựa trên số dư của các ví nắm trong tổng",
+              message: "Được tính dựa trên số dư của các ví nằm trong tổng",
               preferBelow: true,
               triggerMode: TooltipTriggerMode.tap,
               child: Row(
@@ -78,7 +79,7 @@ class Home extends StatelessWidget {
                     "Tổng số dư",
                     style: TextStyle(
                       fontSize: DeviceHelper.getFontSize(12),
-                      color: AppColor.fourthMain,
+                      color: AppColor.text3,
                       fontWeight: FontWeight.w400,
                     ),
                   ).marginOnly(right: 4),
@@ -87,7 +88,7 @@ class Home extends StatelessWidget {
                     width: 14,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.grey,
+                      color: AppColor.text3,
                     ),
                     child: const Icon(
                       Icons.question_mark,
@@ -102,7 +103,7 @@ class Home extends StatelessWidget {
           IconButton(
             icon: const Icon(
               Icons.notifications_rounded,
-              color: AppColor.fourthMain,
+              color: AppColor.text1,
             ),
             tooltip: 'Thông báo',
             onPressed: () {
@@ -117,67 +118,400 @@ class Home extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.fourthMain,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+            Container(
+              decoration: BoxDecoration(
+                  color: AppColor.main,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Column(children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: AppColor.text4,
+                        width: 0.5,
                       ),
-                      minimumSize: const Size(200, 50),
                     ),
-                    onPressed: () {
-                      controller.pickImageFromGallery();
-                    },
-                    child: const Text('Pick Image'))
-                .marginOnly(bottom: 12, top: 12),
-            ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.fourthMain,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      minimumSize: const Size(200, 50),
-                    ),
-                    onPressed: () {
-                      controller.pickImageFromCamera();
-                    },
-                    child: const Text('Image from Camera'))
-                .marginOnly(bottom: 12),
-            ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.fourthMain,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      minimumSize: const Size(200, 50),
-                    ),
-                    onPressed: () {
-                      controller.clearImage();
-                    },
-                    child: const Text('Clear Image'))
-                .marginOnly(bottom: 12),
-            Obx(() {
-              if (controller.image.value.path != "") {
-                return Image.file(controller.image.value);
-              } else {
-                return const SizedBox();
-              }
-            }),
-            Obx(() => Text(
-                  controller.textInImage.value,
-                  style: TextStyle(
-                    // decoration: TextDecoration.lineThrough, // Chỉ gạch ngang
-                    // decorationColor: AppColor.thirdMain, // Màu gạch ngang
-                    // decorationThickness: 2.0, // Độ dày của dòng gạch ngang
-                    color: AppColor.thirdMain,
-                    fontWeight: FontWeight.w900,
-                    fontStyle: FontStyle.normal,
-                    fontSize: DeviceHelper.getFontSize(16),
                   ),
-                ).paddingAll(20.sp))
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Ví của tôi",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(14),
+                            color: AppColor.text1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          "Xem tất cả",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.fourthMain,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ]).marginSymmetric(horizontal: 16, vertical: 12),
+                ).marginOnly(bottom: 12),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(300),
+                            color: AppColor.subMain,
+                          ),
+                          child: SvgPicture.asset(
+                            'assets/icons/wallet-money.svg',
+                            height: 25,
+                            width: 25,
+                          ),
+                        ).marginOnly(right: 12),
+                        Text(
+                          "Tiền mặt",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.text1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "0",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.text1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          "đ",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.text1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ).paddingSymmetric(horizontal: 16).marginOnly(bottom: 12),
+              ]),
+            ).marginSymmetric(horizontal: 20, vertical: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Báo cáo tháng này",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.grey,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                Text(
+                  "Xem báo cáo",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.fourthMain,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ).paddingSymmetric(horizontal: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                  color: AppColor.main,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Obx(
+                            () => GestureDetector(
+                              onTap: () {
+                                controller.reportTrendTabIndex.value = 0;
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.only(bottom: 6),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: controller
+                                                  .reportTrendTabIndex.value ==
+                                              0
+                                          ? AppColor.fourthMain
+                                          : AppColor.text4,
+                                      width: controller
+                                                  .reportTrendTabIndex.value ==
+                                              0
+                                          ? 2
+                                          : 0.5,
+                                    ),
+                                  ),
+                                ),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Tổng đã chi",
+                                        style: TextStyle(
+                                          fontSize:
+                                              DeviceHelper.getFontSize(12),
+                                          color: AppColor.grey,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                      Text(
+                                        "0",
+                                        style: TextStyle(
+                                          fontSize:
+                                              DeviceHelper.getFontSize(14),
+                                          color: AppColor.fourthMain,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ]),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Obx(
+                            () => GestureDetector(
+                              onTap: () {
+                                controller.reportTrendTabIndex.value = 1;
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.only(bottom: 6),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: controller
+                                                  .reportTrendTabIndex.value ==
+                                              1
+                                          ? AppColor.purple
+                                          : AppColor.text4,
+                                      width: controller
+                                                  .reportTrendTabIndex.value ==
+                                              1
+                                          ? 2
+                                          : 0.5,
+                                    ),
+                                  ),
+                                ),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Tổng thu",
+                                        style: TextStyle(
+                                          fontSize:
+                                              DeviceHelper.getFontSize(12),
+                                          color: AppColor.grey,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                      Text(
+                                        "0",
+                                        style: TextStyle(
+                                          fontSize:
+                                              DeviceHelper.getFontSize(14),
+                                          color: AppColor.purple,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ]),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 13,
+                          width: 13,
+                          decoration: const BoxDecoration(
+                            color: AppColor.fourthMain,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          "Tháng này",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(11),
+                            color: AppColor.grey,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        const SizedBox(width: 30),
+                        Container(
+                          height: 13,
+                          width: 13,
+                          decoration: const BoxDecoration(
+                            color: AppColor.subMain,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          "Trung bình 3 tháng trước",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(11),
+                            color: AppColor.grey,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Container(
+                          height: 14,
+                          width: 14,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColor.text3,
+                          ),
+                          child: const Icon(
+                            Icons.question_mark,
+                            color: Colors.white,
+                            size: 10,
+                          ),
+                        ),
+                      ],
+                    ).marginSymmetric(horizontal: 16, vertical: 6),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            controller.changeReportTabIndex();
+                          },
+                          child: const Icon(Icons.arrow_back_ios,
+                                  size: 15, color: AppColor.fourthMain)
+                              .marginOnly(left: 20),
+                        ),
+                        Obx(
+                          () => Text(
+                            controller.reportTabIndex.value == 0
+                                ? "Báo cáo xu hướng"
+                                : "Báo cáo chi tiêu",
+                            style: TextStyle(
+                              fontSize: DeviceHelper.getFontSize(15),
+                              color: AppColor.fourthMain,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            controller.changeReportTabIndex();
+                          },
+                          child: const Icon(Icons.arrow_forward_ios,
+                                  size: 15, color: AppColor.fourthMain)
+                              .marginOnly(right: 20),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Obx(
+                          () => Container(
+                            height: 8,
+                            width: 8,
+                            decoration: BoxDecoration(
+                              color: controller.reportTabIndex.value == 0
+                                  ? AppColor.grey
+                                  : AppColor.subMain,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Obx(
+                          () => Container(
+                            height: 8,
+                            width: 8,
+                            decoration: BoxDecoration(
+                              color: controller.reportTabIndex.value == 1
+                                  ? AppColor.grey
+                                  : AppColor.subMain,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ).marginOnly(top: 4),
+                  ]),
+            ).marginSymmetric(horizontal: 20, vertical: 6),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Chi tiết nhiều nhất",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.grey,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                Text(
+                  "Xem chi tiết",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.fourthMain,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ).paddingSymmetric(horizontal: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Giao dịch gần đây",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.grey,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                Text(
+                  "Xem tất cả",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.fourthMain,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ).paddingSymmetric(horizontal: 20),
           ],
         ),
       ),
