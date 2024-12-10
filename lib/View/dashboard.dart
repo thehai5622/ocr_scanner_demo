@@ -6,6 +6,7 @@ import 'package:ocr_scanner_demo/Controller/dashboard_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
 import 'package:ocr_scanner_demo/Service/device_helper.dart';
 import 'package:ocr_scanner_demo/View/Home/home.dart';
+import 'package:ocr_scanner_demo/View/Individual/individual.dart';
 
 class Dashboard extends StatelessWidget {
   Dashboard({super.key});
@@ -39,7 +40,7 @@ class Dashboard extends StatelessWidget {
           case 2:
             return Container();
           case 3:
-            return Container();
+            return Individual();
           default:
             return Container();
         }
