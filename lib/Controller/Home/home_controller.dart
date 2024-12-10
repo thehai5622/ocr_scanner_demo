@@ -11,7 +11,9 @@ class HomeController extends GetxController {
   RxString textInImage = ''.obs;
   RxBool isShowBalance = false.obs;
   RxInt reportTabIndex = 0.obs;
+  RxInt spendingDetailsTabIndex = 0.obs;
   RxInt reportTrendTabIndex = 0.obs;
+  RxInt reportExpenseTabIndex = 0.obs;
 
   @override
   void onInit() async {

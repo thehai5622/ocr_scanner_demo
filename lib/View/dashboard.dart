@@ -46,7 +46,6 @@ class Dashboard extends StatelessWidget {
       }),
       bottomNavigationBar: BottomAppBar(
         elevation: 5,
-        height: 72.h,
         color: AppColor.main,
         shape: const CircularNotchedRectangle(),
         child: Obx(
@@ -73,6 +72,7 @@ class Dashboard extends StatelessWidget {
                           ),
                           Text(
                             'Tổng quan',
+                            textAlign: TextAlign.center,
                             style: controller.currentIndex.value == 0
                                 ? TextStyle(
                                     fontSize: DeviceHelper.getFontSize(12),
@@ -108,6 +108,7 @@ class Dashboard extends StatelessWidget {
                           ),
                           Text(
                             'Sổ giao dịch',
+                            textAlign: TextAlign.center,
                             style: controller.currentIndex.value == 1
                                 ? TextStyle(
                                     fontSize: DeviceHelper.getFontSize(12),
@@ -146,6 +147,7 @@ class Dashboard extends StatelessWidget {
                           ),
                           Text(
                             'Ngân sách',
+                            textAlign: TextAlign.center,
                             style: controller.currentIndex.value == 2
                                 ? TextStyle(
                                     fontSize: DeviceHelper.getFontSize(12),
@@ -179,6 +181,7 @@ class Dashboard extends StatelessWidget {
                           ),
                           Text(
                             'Cá nhân',
+                            textAlign: TextAlign.center,
                             style: controller.currentIndex.value == 3
                                 ? TextStyle(
                                     fontSize: DeviceHelper.getFontSize(12),

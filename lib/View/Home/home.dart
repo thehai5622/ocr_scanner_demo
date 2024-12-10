@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
                           Text(
                             "0",
                             style: TextStyle(
-                              fontSize: DeviceHelper.getFontSize(20),
+                              fontSize: DeviceHelper.getFontSize(22),
                               color: AppColor.text1,
                               fontWeight: FontWeight.w700,
                             ),
@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
                           Text(
                             "đ",
                             style: TextStyle(
-                              fontSize: DeviceHelper.getFontSize(20),
+                              fontSize: DeviceHelper.getFontSize(22),
                               color: AppColor.text1,
                               fontWeight: FontWeight.w700,
                             ),
@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
                     : Text(
                         "✱✱✱✱✱✱✱",
                         style: TextStyle(
-                          fontSize: DeviceHelper.getFontSize(20),
+                          fontSize: DeviceHelper.getFontSize(22),
                           color: AppColor.text1,
                           fontWeight: FontWeight.w700,
                         ),
@@ -238,170 +238,331 @@ class Home extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Obx(
-                            () => GestureDetector(
-                              onTap: () {
-                                controller.reportTrendTabIndex.value = 0;
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.only(bottom: 6),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    bottom: BorderSide(
-                                      color: controller
-                                                  .reportTrendTabIndex.value ==
-                                              0
-                                          ? AppColor.fourthMain
-                                          : AppColor.text4,
-                                      width: controller
-                                                  .reportTrendTabIndex.value ==
-                                              0
-                                          ? 2
-                                          : 0.5,
+                    Obx(
+                      () => Column(
+                        children: controller.reportTabIndex.value == 0
+                            ? [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Obx(
+                                        () => GestureDetector(
+                                          onTap: () {
+                                            controller
+                                                .reportTrendTabIndex.value = 0;
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 6),
+                                            decoration: BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(
+                                                  color: controller
+                                                              .reportTrendTabIndex
+                                                              .value ==
+                                                          0
+                                                      ? AppColor.fourthMain
+                                                      : AppColor.text4,
+                                                  width: controller
+                                                              .reportTrendTabIndex
+                                                              .value ==
+                                                          0
+                                                      ? 2
+                                                      : 0.5,
+                                                ),
+                                              ),
+                                            ),
+                                            child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "Tổng đã chi",
+                                                    style: TextStyle(
+                                                      fontSize: DeviceHelper
+                                                          .getFontSize(12),
+                                                      color: AppColor.grey,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "0",
+                                                    style: TextStyle(
+                                                      fontSize: DeviceHelper
+                                                          .getFontSize(14),
+                                                      color:
+                                                          AppColor.fourthMain,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                    ),
+                                                  ),
+                                                ]),
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Tổng đã chi",
-                                        style: TextStyle(
-                                          fontSize:
-                                              DeviceHelper.getFontSize(12),
-                                          color: AppColor.grey,
-                                          fontWeight: FontWeight.w400,
+                                    Expanded(
+                                      child: Obx(
+                                        () => GestureDetector(
+                                          onTap: () {
+                                            controller
+                                                .reportTrendTabIndex.value = 1;
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 6),
+                                            decoration: BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(
+                                                  color: controller
+                                                              .reportTrendTabIndex
+                                                              .value ==
+                                                          1
+                                                      ? AppColor.purple
+                                                      : AppColor.text4,
+                                                  width: controller
+                                                              .reportTrendTabIndex
+                                                              .value ==
+                                                          1
+                                                      ? 2
+                                                      : 0.5,
+                                                ),
+                                              ),
+                                            ),
+                                            child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "Tổng thu",
+                                                    style: TextStyle(
+                                                      fontSize: DeviceHelper
+                                                          .getFontSize(12),
+                                                      color: AppColor.grey,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "0",
+                                                    style: TextStyle(
+                                                      fontSize: DeviceHelper
+                                                          .getFontSize(14),
+                                                      color: AppColor.purple,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                    ),
+                                                  ),
+                                                ]),
+                                          ),
                                         ),
                                       ),
-                                      Text(
-                                        "0",
-                                        style: TextStyle(
-                                          fontSize:
-                                              DeviceHelper.getFontSize(14),
-                                          color: AppColor.fourthMain,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ]),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Obx(
-                            () => GestureDetector(
-                              onTap: () {
-                                controller.reportTrendTabIndex.value = 1;
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.only(bottom: 6),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    bottom: BorderSide(
-                                      color: controller
-                                                  .reportTrendTabIndex.value ==
-                                              1
-                                          ? AppColor.purple
-                                          : AppColor.text4,
-                                      width: controller
-                                                  .reportTrendTabIndex.value ==
-                                              1
-                                          ? 2
-                                          : 0.5,
                                     ),
-                                  ),
+                                  ],
                                 ),
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 13,
+                                      width: 13,
+                                      decoration: const BoxDecoration(
+                                        color: AppColor.fourthMain,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      "Tháng này",
+                                      style: TextStyle(
+                                        fontSize: DeviceHelper.getFontSize(11),
+                                        color: AppColor.grey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 30),
+                                    Container(
+                                      height: 13,
+                                      width: 13,
+                                      decoration: const BoxDecoration(
+                                        color: AppColor.subMain,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      "Trung bình 3 tháng trước",
+                                      style: TextStyle(
+                                        fontSize: DeviceHelper.getFontSize(11),
+                                        color: AppColor.grey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Container(
+                                      height: 14,
+                                      width: 14,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: AppColor.text3,
+                                      ),
+                                      child: const Icon(
+                                        Icons.question_mark,
+                                        color: Colors.white,
+                                        size: 10,
+                                      ),
+                                    ),
+                                  ],
+                                ).marginSymmetric(horizontal: 16, vertical: 6),
+                              ]
+                            : [
+                                Container(
+                                  padding: const EdgeInsets.all(2.5),
+                                  decoration: BoxDecoration(
+                                    color: AppColor.subMain,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Row(
                                     children: [
-                                      Text(
-                                        "Tổng thu",
-                                        style: TextStyle(
-                                          fontSize:
-                                              DeviceHelper.getFontSize(12),
-                                          color: AppColor.grey,
-                                          fontWeight: FontWeight.w400,
+                                      Expanded(
+                                          child: GestureDetector(
+                                        onTap: () {
+                                          controller
+                                              .reportExpenseTabIndex.value = 0;
+                                        },
+                                        child: Container(
+                                          padding: const EdgeInsets.all(8),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                            color: controller
+                                                        .reportExpenseTabIndex
+                                                        .value ==
+                                                    0
+                                                ? AppColor.main
+                                                : AppColor.subMain,
+                                          ),
+                                          child: Text(
+                                            "Tuần",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize:
+                                                  DeviceHelper.getFontSize(13),
+                                              color: controller
+                                                          .reportExpenseTabIndex
+                                                          .value ==
+                                                      0
+                                                  ? AppColor.text1
+                                                  : AppColor.grey,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        "0",
-                                        style: TextStyle(
-                                          fontSize:
-                                              DeviceHelper.getFontSize(14),
-                                          color: AppColor.purple,
-                                          fontWeight: FontWeight.w700,
+                                      )),
+                                      Expanded(
+                                          child: GestureDetector(
+                                        onTap: () {
+                                          controller
+                                              .reportExpenseTabIndex.value = 1;
+                                        },
+                                        child: Container(
+                                          padding: const EdgeInsets.all(8),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                            color: controller
+                                                        .reportExpenseTabIndex
+                                                        .value ==
+                                                    1
+                                                ? AppColor.main
+                                                : AppColor.subMain,
+                                          ),
+                                          child: Text(
+                                            "Tháng",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize:
+                                                  DeviceHelper.getFontSize(13),
+                                              color: controller
+                                                          .reportExpenseTabIndex
+                                                          .value ==
+                                                      1
+                                                  ? AppColor.text1
+                                                  : AppColor.grey,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
                                         ),
+                                      )),
+                                    ],
+                                  ),
+                                ).marginOnly(bottom: 6),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "0",
+                                      style: TextStyle(
+                                        fontSize: DeviceHelper.getFontSize(20),
+                                        color: AppColor.text1,
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                    ]),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      "đ",
+                                      style: TextStyle(
+                                        fontSize: DeviceHelper.getFontSize(20),
+                                        color: AppColor.text1,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Tổng chi ${controller.reportExpenseTabIndex.value == 0 ? "tuần" : "tháng"} này",
+                                      style: TextStyle(
+                                        fontSize: DeviceHelper.getFontSize(11),
+                                        color: AppColor.grey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Container(
+                                        height: 14,
+                                        width: 14,
+                                        decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: AppColor.subMain,
+                                        ),
+                                        child: SvgPicture.asset(
+                                          'assets/icons/minus.svg',
+                                          colorFilter: const ColorFilter.mode(
+                                              AppColor.purple, BlendMode.srcIn),
+                                          height: 12,
+                                          width: 12,
+                                        )),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      "0%",
+                                      style: TextStyle(
+                                        fontSize: DeviceHelper.getFontSize(16),
+                                        color: AppColor.orange,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 13,
-                          width: 13,
-                          decoration: const BoxDecoration(
-                            color: AppColor.fourthMain,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          "Tháng này",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(11),
-                            color: AppColor.grey,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        const SizedBox(width: 30),
-                        Container(
-                          height: 13,
-                          width: 13,
-                          decoration: const BoxDecoration(
-                            color: AppColor.subMain,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          "Trung bình 3 tháng trước",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(11),
-                            color: AppColor.grey,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Container(
-                          height: 14,
-                          width: 14,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColor.text3,
-                          ),
-                          child: const Icon(
-                            Icons.question_mark,
-                            color: Colors.white,
-                            size: 10,
-                          ),
-                        ),
-                      ],
-                    ).marginSymmetric(horizontal: 16, vertical: 6),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -473,7 +634,7 @@ class Home extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Chi tiết nhiều nhất",
+                  "Chi tiêu nhiều nhất",
                   style: TextStyle(
                     fontSize: DeviceHelper.getFontSize(12),
                     color: AppColor.grey,
@@ -489,7 +650,139 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ],
-            ).paddingSymmetric(horizontal: 20),
+            ).paddingSymmetric(horizontal: 20, vertical: 6),
+            Container(
+              margin: const EdgeInsets.only(bottom: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                  color: AppColor.main,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Column(children: [
+                Container(
+                  padding: const EdgeInsets.all(2.5),
+                  decoration: BoxDecoration(
+                    color: AppColor.subMain,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Obx(
+                    () => Row(
+                      children: [
+                        Expanded(
+                            child: GestureDetector(
+                          onTap: () {
+                            controller.spendingDetailsTabIndex.value = 0;
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6),
+                              color:
+                                  controller.spendingDetailsTabIndex.value == 0
+                                      ? AppColor.main
+                                      : AppColor.subMain,
+                            ),
+                            child: Text(
+                              "Tuần",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: DeviceHelper.getFontSize(13),
+                                color:
+                                    controller.spendingDetailsTabIndex.value ==
+                                            0
+                                        ? AppColor.text1
+                                        : AppColor.grey,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        )),
+                        Expanded(
+                            child: GestureDetector(
+                          onTap: () {
+                            controller.spendingDetailsTabIndex.value = 1;
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6),
+                              color:
+                                  controller.spendingDetailsTabIndex.value == 1
+                                      ? AppColor.main
+                                      : AppColor.subMain,
+                            ),
+                            child: Text(
+                              "Tháng",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: DeviceHelper.getFontSize(13),
+                                color:
+                                    controller.spendingDetailsTabIndex.value ==
+                                            1
+                                        ? AppColor.text1
+                                        : AppColor.grey,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        )),
+                      ],
+                    ),
+                  ),
+                ).marginSymmetric(vertical: 12),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(300),
+                            color: AppColor.subMain,
+                          ),
+                          child: SvgPicture.asset(
+                            'assets/icons/wallet-money.svg',
+                            height: 25,
+                            width: 25,
+                          ),
+                        ).marginOnly(right: 12),
+                        Text(
+                          "Tiền mặt",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.text1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "0",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.text1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          "đ",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.text1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ).marginOnly(bottom: 12),
+              ]),
+            ).marginSymmetric(horizontal: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -511,7 +804,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ],
-            ).paddingSymmetric(horizontal: 20),
+            ).paddingSymmetric(horizontal: 20, vertical: 6),
           ],
         ),
       ),
