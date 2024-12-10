@@ -7,6 +7,7 @@ abstract class Routes {
   static const pickImage = _Paths.pickImage;
   static const individual = _Paths.individual;
   static const requestSupport = _Paths.requestSupport;
+  static const createRequest = _Paths.createRequest;
 }
 
 abstract class _Paths {
@@ -16,4 +17,5 @@ abstract class _Paths {
   static const String pickImage = '/pick-image';
   static const String individual = '/individual';
   static const String requestSupport = '/request-support';
+  static const String createRequest = '/create-request';
 }

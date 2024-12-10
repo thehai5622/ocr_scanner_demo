@@ -19,16 +19,21 @@ class Dashboard extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColor.fourthMain,
-        elevation: 0,
-        shape: const CircleBorder(),
-        onPressed: () {
-          // Xử lý nút thêm nào đó
+      floatingActionButton: GestureDetector(
+        onLongPress: () {
+          print('on long press');
         },
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
+        child: FloatingActionButton(
+          backgroundColor: AppColor.fourthMain,
+          elevation: 0,
+          shape: const CircleBorder(),
+          onPressed: () {
+            print('on press');
+          },
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
       ),
       body: Obx(() {

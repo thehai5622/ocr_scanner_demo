@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/Controller/Individual/RequestSupport/request_support_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
+import 'package:ocr_scanner_demo/Route/app_page.dart';
 import 'package:ocr_scanner_demo/Service/device_helper.dart';
 
 class RequestSupport extends StatelessWidget {
@@ -27,6 +28,22 @@ class RequestSupport extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.createRequest);
+              },
+              child: Text(
+                "Tạo yêu cầu",
+                style: TextStyle(
+                  fontSize: DeviceHelper.getFontSize(16),
+                  color: AppColor.fourthMain,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+          ],
         ),
         body: Container(
           width: double.infinity,
@@ -62,7 +79,7 @@ class RequestSupport extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 70),
                 ),
                 onPressed: () {
-                  // Define your onPressed logic here
+                  Get.toNamed(Routes.createRequest);
                 },
                 child: Text(
                   "Tạo yêu cầu",
