@@ -266,13 +266,8 @@ class Home extends StatelessWidget {
                                                               .value ==
                                                           0
                                                       ? AppColor.fourthMain
-                                                      : AppColor.text4,
-                                                  width: controller
-                                                              .reportTrendTabIndex
-                                                              .value ==
-                                                          0
-                                                      ? 2
-                                                      : 0.5,
+                                                      : AppColor.greyLine,
+                                                  width: 2,
                                                 ),
                                               ),
                                             ),
@@ -324,13 +319,8 @@ class Home extends StatelessWidget {
                                                               .value ==
                                                           1
                                                       ? AppColor.purple
-                                                      : AppColor.text4,
-                                                  width: controller
-                                                              .reportTrendTabIndex
-                                                              .value ==
-                                                          1
-                                                      ? 2
-                                                      : 0.5,
+                                                      : AppColor.greyLine,
+                                                  width: 2,
                                                 ),
                                               ),
                                             ),

@@ -13,4 +13,5 @@ class AppColor {
   static const text4  = Color(0xFF808080);
   static const purple  = Color(0xFF605EA1);
   static const orange  = Color(0xFFFAB12F);
+  static const greyLine = Color(0xFFDDDDDD);
 }

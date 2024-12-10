@@ -5,8 +5,10 @@ import 'package:get/get.dart';
 import 'package:ocr_scanner_demo/Controller/dashboard_controller.dart';
 import 'package:ocr_scanner_demo/Global/app_color.dart';
 import 'package:ocr_scanner_demo/Service/device_helper.dart';
+import 'package:ocr_scanner_demo/View/Budget/budget.dart';
 import 'package:ocr_scanner_demo/View/Home/home.dart';
 import 'package:ocr_scanner_demo/View/Individual/individual.dart';
+import 'package:ocr_scanner_demo/View/TransactionBook/transaction_book.dart';
 
 class Dashboard extends StatelessWidget {
   Dashboard({super.key});
@@ -41,9 +43,9 @@ class Dashboard extends StatelessWidget {
           case 0:
             return Home();
           case 1:
-            return Container();
+            return TransactionBook();
           case 2:
-            return Container();
+            return Budget();
           case 3:
             return Individual();
           default:
