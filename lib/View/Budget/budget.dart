@@ -12,7 +12,7 @@ class Budget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: AppColor.thirdMain,
+        color: AppColor.subMain,
       ),
     );
   }
